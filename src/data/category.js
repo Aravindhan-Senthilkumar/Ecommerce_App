@@ -12,9 +12,6 @@ export const category = [{
     name: 'Samsung'
 },{
     id: 5,
-    name: 'Huawei'
-},{
-    id: 6,
-    name: 'Headphones'
+    name: 'Headphone'
 },
 ]

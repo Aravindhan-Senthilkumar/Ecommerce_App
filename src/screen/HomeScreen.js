@@ -1,18 +1,22 @@
-import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { colors } from '../constants/color'
 import { spacing, fontSize } from '../constants/dimensions'
 import { fontFamily } from '../constants/fonts'
 import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons'
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Category from '../components/Category'
 import CardComponent from '../components/CardComponent'
 import { smartwatch } from '../components/smartwatch'
 import { Apple } from '../data/Apple'
 import { Xiaomi } from '../data/Xiaomi'
 import { Samsung } from '../data/Samsung'
+import { Headphone } from '../data/Headphone'
+import auth from '../../services/firebaseAuth'
+import { signOut } from 'firebase/auth'
 
-const HomeScreen = () => {
+
+
+const HomeScreen = ({ navigation }) => {
   const [data,setData] = useState();
   const [selectedCategory,setSelectedCategory] = useState('Smart Watch');
   const handleUpdateCategory = (newCategory) => {
@@ -28,23 +32,38 @@ const HomeScreen = () => {
     }else if(newCategory === 'Samsung'){
       setSelectedCategory('Samsung')
       setData(Samsung)
+    }else if(newCategory === 'Headphone'){
+      setSelectedCategory('Headphone')
+      setData(Headphone)
     }
   }
   useEffect(() => {
     setData(smartwatch)
   },[])
+  const logout = () => {
+    signOut(auth)
+    .then(() => {
+      alert('You are logged out')
+      setTimeout(navigation.navigate('LoginScreen'),2000)
+    })
+  }
   return (
     <View style={styles.container}>
       <FlatList 
       ListHeaderComponent={
         <>
+        <View style={styles.logoutContainer}>
       <Text style={styles.headlineText}>Find your favourite products now.</Text>
+      
+        </View>
       <View style={styles.ParentSearchContainer}>
       <View style={styles.searchContainer}>
       <SimpleIcon name='magnifier' size={23} style={styles.lensIcon}/>
       <TextInput placeholder='Search Product' style={styles.InputContainer}/>
       </View>
-      <MaterialIcon name='category' size={23} style={styles.CategoryIcon}/>
+      <TouchableOpacity style={styles.logout} onPress={logout}>
+        <Text style={styles.logoutText}>Log out</Text>
+      </TouchableOpacity>
       </View>
       <Category selectedCategory={selectedCategory} handleUpdateCategory={handleUpdateCategory}/>
         </>
@@ -78,7 +97,7 @@ headlineText: {
 },
 searchContainer: {
   flexDirection: 'row',
-  width: '85%',
+  width: '75%',
   borderColor: colors.placeholderText,
   borderWidth: 1,
   alignItems: 'center',
@@ -101,5 +120,19 @@ CategoryIcon: {
   paddingHorizontal: 15,
   paddingTop: 12,
   color: colors.black
+},
+logoutContainer: {
+  flexDirection: 'row',
+  width: '99%'
+},
+logout: {
+  marginTop: 10,
+  marginLeft: 7
+},
+logoutText: {
+  fontFamily: fontFamily.Bold,
+  marginLeft: spacing.sm,
+  fontSize: fontSize.lg,
+  color: colors.purple
 }
 })

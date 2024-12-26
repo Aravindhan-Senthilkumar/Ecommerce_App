@@ -5,6 +5,7 @@ import { fontFamily } from '../constants/fonts'
 import { colors } from '../constants/color'
 import { category } from '../data/category'
 
+
 const Category = ({ selectedCategory,handleUpdateCategory }) => {
 
   return (
