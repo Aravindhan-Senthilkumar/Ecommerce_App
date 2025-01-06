@@ -4,7 +4,7 @@ An intuitive and visually appealing E-commerce application built with **React Na
 
 ## 📺 Project Demo
 
-[![E-Commerce App Demo](https://youtu.be/q6kceaIq1kI?si=Cidq8MPmN15Bf-Ao)
+https://youtu.be/q6kceaIq1kI?si=Cidq8MPmN15Bf-Ao
 
 Click the image above to watch the full demo on YouTube!
 
