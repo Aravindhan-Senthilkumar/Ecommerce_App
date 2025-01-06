@@ -2,6 +2,12 @@
 
 An intuitive and visually appealing E-commerce application built with **React Native**. This app provides users with the ability to browse products, view product details, and select various attributes like color while maintaining seamless navigation across screens.
 
+## 📺 Project Demo
+
+[![E-Commerce App Demo](https://img.youtube.com/vi/q6kceaIq1kI/0.jpg)](https://youtu.be/q6kceaIq1kI?si=Cidq8MPmN15Bf-Ao)
+
+Click the image above to watch the full demo on YouTube!
+
 ## Features
 
 - **Product Carousel**: High-quality image carousel for showcasing product images.
