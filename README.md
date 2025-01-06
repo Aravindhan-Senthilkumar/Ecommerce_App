@@ -6,7 +6,7 @@ An intuitive and visually appealing E-commerce application built with **React Na
 
 https://youtu.be/q6kceaIq1kI?si=Cidq8MPmN15Bf-Ao
 
-Click the image above to watch the full demo on YouTube!
+Click the link above mentioned to watch the full demo on YouTube!
 
 ## Features
 
